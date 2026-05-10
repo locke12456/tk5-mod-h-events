@@ -1,5 +1,10 @@
 太閣立志傳５事件源文件
-
+//OnsenStory4PreludeA()
+//OnsenStory4EventA()
+//OnsenStory4PreludeB()
+//OnsenStory4EventB()
+//OnsenStory4EventC()
+//OnsenStory4EventD()
 定義:OnsenStory4PreludeA(){{
     暫存所有變量:
     ＡＮＤ調查:{

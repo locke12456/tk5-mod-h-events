@@ -1,0 +1,186 @@
+太閣立志傳５事件源文件
+包含:function/message.txt
+包含:function/onsen_message.txt
+// 非Wife B階段組合 (16個)
+// Prelude1 × Event(1,2,4,5)
+定義:OnsenRoutePrelude1Event1B(){{
+    暫存所有變量:
+    調用:OnsenStory1PreludeB()
+    調用:OnsenStory1EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude1Event2B(){{
+    暫存所有變量:
+    調用:OnsenStory1PreludeB()
+    調用:OnsenStory2EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude1Event4B(){{
+    暫存所有變量:
+    調用:OnsenStory1PreludeB()
+    調用:OnsenStory4EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude1Event5B(){{
+    暫存所有變量:
+    調用:OnsenStory1PreludeB()
+    調用:OnsenStory5EventB()
+    恢復所有變量:
+}}
+
+// Prelude2 × Event(1,2,4,5)
+定義:OnsenRoutePrelude2Event1B(){{
+    暫存所有變量:
+    調用:OnsenStory2PreludeB()
+    調用:OnsenStory1EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude2Event2B(){{
+    暫存所有變量:
+    調用:OnsenStory2PreludeB()
+    調用:OnsenStory2EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude2Event4B(){{
+    暫存所有變量:
+    調用:OnsenStory2PreludeB()
+    調用:OnsenStory4EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude2Event5B(){{
+    暫存所有變量:
+    調用:OnsenStory2PreludeB()
+    調用:OnsenStory5EventB()
+    恢復所有變量:
+}}
+
+// Prelude4 × Event(1,2,4,5)
+定義:OnsenRoutePrelude4Event1B(){{
+    暫存所有變量:
+    調用:OnsenStory4PreludeB()
+    調用:OnsenStory1EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude4Event2B(){{
+    暫存所有變量:
+    調用:OnsenStory4PreludeB()
+    調用:OnsenStory2EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude4Event4B(){{
+    暫存所有變量:
+    調用:OnsenStory4PreludeB()
+    調用:OnsenStory4EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude4Event5B(){{
+    暫存所有變量:
+    調用:OnsenStory4PreludeB()
+    調用:OnsenStory5EventB()
+    恢復所有變量:
+}}
+
+// Prelude5 × Event(1,2,4,5)
+定義:OnsenRoutePrelude5Event1B(){{
+    暫存所有變量:
+    調用:OnsenStory5PreludeB()
+    調用:OnsenStory1EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude5Event2B(){{
+    暫存所有變量:
+    調用:OnsenStory5PreludeB()
+    調用:OnsenStory2EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude5Event4B(){{
+    暫存所有變量:
+    調用:OnsenStory5PreludeB()
+    調用:OnsenStory4EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude5Event5B(){{
+    暫存所有變量:
+    調用:OnsenStory5PreludeB()
+    調用:OnsenStory5EventB()
+    恢復所有變量:
+}}
+
+// Wife專用B階段組合 (9個)
+// Prelude3 × Event(3,6,7)
+定義:OnsenRoutePrelude3Event3BWife(){{
+    暫存所有變量:
+    調用:OnsenStory3PreludeB()
+    調用:OnsenStory3EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude3Event6BWife(){{
+    暫存所有變量:
+    調用:OnsenStory3PreludeB()
+    調用:OnsenStory6EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude3Event7BWife(){{
+    暫存所有變量:
+    調用:OnsenStory3PreludeB()
+    調用:OnsenStory7EventB()
+    恢復所有變量:
+}}
+
+// Prelude6 × Event(3,6,7)
+定義:OnsenRoutePrelude6Event3BWife(){{
+    暫存所有變量:
+    調用:OnsenStory6PreludeB()
+    調用:OnsenStory3EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude6Event6BWife(){{
+    暫存所有變量:
+    調用:OnsenStory6PreludeB()
+    調用:OnsenStory6EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude6Event7BWife(){{
+    暫存所有變量:
+    調用:OnsenStory6PreludeB()
+    調用:OnsenStory7EventB()
+    恢復所有變量:
+}}
+
+// Prelude7 × Event(3,6,7)
+定義:OnsenRoutePrelude7Event3BWife(){{
+    暫存所有變量:
+    調用:OnsenStory7PreludeB()
+    調用:OnsenStory3EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude7Event6BWife(){{
+    暫存所有變量:
+    調用:OnsenStory7PreludeB()
+    調用:OnsenStory6EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude7Event7BWife(){{
+    暫存所有變量:
+    調用:OnsenStory7PreludeB()
+    調用:OnsenStory7EventB()
+    恢復所有變量:
+}}

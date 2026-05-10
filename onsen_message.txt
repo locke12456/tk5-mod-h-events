@@ -1,219 +1,597 @@
 太閣立志傳５事件源文件
-包含:function/shop_story1.txt
-包含:function/shop_story2.txt
-包含:function/shop_story3.txt
-包含:function/shop_story4.txt
-包含:function/shop_story5.txt
-定義:GetRandomGirls(){{
-    容器設定:(人物,人物種類,事件人物)
-    容器篩選:(人物,性別,女)
-    容器排序:(無效,亂序,升順)
-    容器選擇:(人物Ａ,先頭)
-    容器清理:(消去,1)
-    容器選擇:(人物Ｂ,先頭)
-    容器清理:(消去,1)
-    容器選擇:(人物Ｃ,先頭)
-    容器清理:(消去,1)
-    容器選擇:(人物Ｄ,先頭)
-    調用:GetGirlsName()
-}}
+包含:function/onsen_message.txt
+包含:function/onsen_story1.txt
+包含:function/onsen_story2.txt
+包含:function/onsen_story3.txt
+包含:function/onsen_story4.txt
+包含:function/onsen_story5.txt
+包含:function/onsen_story6.txt
+包含:function/onsen_story7.txt
 
-定義:GetNinjaGirls(){{
-    //代入人物Ａ:(人物::海賊頭目.人物番號)
-    //代入人物Ｂ:(人物::海賊.人物番號)
-    //代入人物Ｃ:(人物::倭寇.人物番號)
-    //代入人物Ｄ:(人物::倭寇.人物番號)
-    //下忍
-    //中忍
-    //上忍
-    //元締
-    //頭 
-    容器設定:(人物,身份,頭)
-    容器排序:(無效,亂序,升順)
-    容器選擇:(人物Ａ,先頭)
-    容器設定:(人物,身份,下忍)
-    容器排序:(無效,亂序,升順)
-    容器選擇:(人物Ｂ,先頭)
-    容器清理:(消去,1)
-    容器選擇:(人物Ｃ,先頭)
-    容器清理:(消去,1)
-    容器選擇:(人物Ｄ,先頭)
-    調用:GetGirlsName()
-}}
-
-定義:GetPirateGirls(){{
-    //代入人物Ａ:(人物::海賊頭目.人物番號)
-    //代入人物Ｂ:(人物::海賊.人物番號)
-    //代入人物Ｃ:(人物::倭寇.人物番號)
-    //代入人物Ｄ:(人物::倭寇.人物番號)
-    //水夫
-    //水夫頭
-    //船頭 
-    //船大將
-    //頭領 
-    容器設定:(人物,身份,頭領)
-    容器排序:(無效,亂序,升順)
-    容器選擇:(人物Ａ,先頭)
-    容器設定:(人物,身份,水夫)
-    容器排序:(無效,亂序,升順)
-    容器選擇:(人物Ｂ,先頭)
-    容器清理:(消去,1)
-    容器選擇:(人物Ｃ,先頭)
-    容器清理:(消去,1)
-    容器選擇:(人物Ｄ,先頭)
-    //容器設定:(人物,身份,船頭)
-    //容器設定:(人物,身份,船大將)
-    //容器設定:(人物,身份,水夫頭)
-    //容器設定:(人物,身份,水夫)
-    //容器排序:(無效,亂序,升順)
-    //容器選擇:(人物Ａ,先頭)
-    調用:GetGirlsName()
-}}
-
-定義:GetGirlsName(){{
-
+定義:OnsenStoryAll(结果變量){{
     暫存所有變量:
-    文字列設定:(文字列Ａ)[[(人物Ａ.名)]]
-    調查:(人物Ａ)==(主人公妻)
+    代入ａ:(Ｒｎｄ)%(8)
+    調查:(ａ)==(0)
     分歧:(真){
-        文字列設定:(文字列Ａ)[[(主人公妻.名)]]
+        代入ａ:(1)
     }
-    文字列設定:(文字列Ｂ)[[(人物Ｂ.名)]]
-    文字列設定:(文字列Ｃ)[[(人物Ｃ.名)]]
-    文字列設定:(文字列Ｄ)[[(人物Ｄ.名)]]
-
-    恢復所有變量:
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory1All()
+        }
+        場合分歧:(2){
+            調用:OnsenStory2All()
+        }
+        場合分歧:(3){
+            調用:OnsenStory3All()
+        }
+        場合分歧:(4){
+            調用:OnsenStory4All()
+        }
+        場合分歧:(5){
+            調用:OnsenStory5All()
+        }
+        場合分歧:(6){
+            調用:OnsenStory6All()
+        }
+        場合分歧:(7){
+            調用:OnsenStory7All()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
 }}
 
-定義:SetGirlsNameText(目標文字Ａ, 目標文字Ｂ, 目標文字Ｃ, 目標文字Ｄ){{
-    文字列設定:(文字列Ａ)[[{目標文字Ａ}]]
-    文字列設定:(文字列Ｂ)[[{目標文字Ｂ}]]
-    文字列設定:(文字列Ｃ)[[{目標文字Ｃ}]]
-    文字列設定:(文字列Ｄ)[[{目標文字Ｄ}]]
-}}
-
-定義:ShopSex1PStart(目標人物){{
+定義:OnsenPreludeA(结果變量){{
     暫存所有變量:
-    代入人物Ａ:({目標人物})
+    代入ａ:(Ｒｎｄ)%(8)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory1PreludeA()
+        }
+        場合分歧:(2){
+            調用:OnsenStory2PreludeA()
+        }
+        場合分歧:(3){
+            調用:OnsenStory3PreludeA()
+        }
+        場合分歧:(4){
+            調用:OnsenStory4PreludeA()
+        }
+        場合分歧:(5){
+            調用:OnsenStory5PreludeA()
+        }
+        場合分歧:(6){
+            調用:OnsenStory6PreludeA()
+        }
+        場合分歧:(7){
+            調用:OnsenStory7PreludeA()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:SoloSexOnsen(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(8)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory1EventA()
+        }
+        場合分歧:(2){
+            調用:OnsenStory2EventA()
+        }
+        場合分歧:(3){
+            調用:OnsenStory3EventA()
+        }
+        場合分歧:(4){
+            調用:OnsenStory4EventA()
+        }
+        場合分歧:(5){
+            調用:OnsenStory5EventA()
+        }
+        場合分歧:(6){
+            調用:OnsenStory6EventA()
+        }
+        場合分歧:(7){
+            調用:OnsenStory7EventA()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+
+定義:OnsenPreludeB(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(5)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory1PreludeB()
+        }
+        場合分歧:(2){
+            調用:OnsenStory2PreludeB()
+        }
+        場合分歧:(3){
+            調用:OnsenStory4PreludeB()
+        }
+        場合分歧:(4){
+            調用:OnsenStory5PreludeB()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenPreludeC(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(2)
+    場合別:(ａ){
+        場合分歧:(0){
+            調用:OnsenStory1PreludeC()
+        }
+        場合分歧:(1){
+            調用:OnsenStory2PreludeC()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenEventB(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(5)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory1EventB()
+        }
+        場合分歧:(2){
+            調用:OnsenStory2EventB()
+        }
+        場合分歧:(3){
+            調用:OnsenStory4EventB()
+        }
+        場合分歧:(4){
+            調用:OnsenStory5EventB()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenEventC(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(5)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory1PreludeC()
+            調用:OnsenStory1EventC()
+            調用:OnsenStory1EventD()
+        }
+        場合分歧:(2){
+            調用:OnsenStory1PreludeC()
+            調用:OnsenStory2EventC()
+        }
+        場合分歧:(3){
+            調用:OnsenStory4EventC()
+            調用:OnsenStory4EventD()
+        }
+        場合分歧:(4){
+            調用:OnsenStory5EventC()
+            調用:OnsenStory5EventD()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenPreludeBWife(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(4)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        // wife
+        場合分歧:(4){
+            調用:OnsenStory3PreludeB()
+        }
+        // wife
+        場合分歧:(2){
+            調用:OnsenStory6PreludeB()
+        }
+        // wife
+        場合分歧:(3){
+            調用:OnsenStory7PreludeB()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenPreludeCWife(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(3)
+    場合別:(ａ){
+        場合分歧:(0){
+            調用:OnsenStory1PreludeC()
+        }
+        場合分歧:(1){
+            調用:OnsenStory2PreludeC()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenEventBWife(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(4)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory3EventB()
+        }
+        場合分歧:(2){
+            調用:OnsenStory6EventB()
+        }
+        場合分歧:(3){
+            調用:OnsenStory7EventB()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenEventCWife(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(4)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory3EventC()
+        }
+        場合分歧:(2){
+            調用:OnsenStory6EventC()
+        }
+        場合分歧:(3){
+            調用:OnsenStory7EventC()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenStory1All(){{
+    暫存所有變量:
     ＡＮＤ調查:{
         調查:(人物Ａ)!=(無效)
         調查:(人物Ａ)!=(主人公)
     }
     分歧:(真){
-        選擇:[[開始1]][[開始2]][[開始3]][[開始4]][[開始5]][[算了]]
-        分歧:([[開始1]]){
-            調用:ShopSexStory1Part1(人物Ａ)
-        }
-        分歧:([[開始2]]){
-            調用:ShopSexStory2Part1(人物Ａ)
-        }
-        分歧:([[開始3]]){
-            調用:ShopSexStory3Part1(人物Ａ)
-        }
-        分歧:([[開始4]]){
-            調用:ShopSexStory4Part1(人物Ａ)
-        }
-        分歧:([[開始5]]){
-            調用:ShopSexStory5Part1(人物Ａ)
-        }
+        調用:OnsenStory1PreludeA()
+        調用:ShowSexPic()
+        調用:OnsenStory1EventA()
+        調用:OnsenStory1PreludeB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory1EventB()
+        調用:OnsenStory1PreludeC()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory1EventC()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory1EventD()
+        圖片移除:(圖片Ａ,褪去)
     }
-    恢復所有變量:
-}}
-定義:ShopSex1PExit(目標人物, 數值){{
-    暫存所有變量:
-    代入人物Ａ:({目標人物})
-    代入ａ:({數值})
-    ＡＮＤ調查:{
-        調查:(人物Ａ)!=(無效)
-        調查:(人物Ａ)!=(主人公)
-    }
-    分歧:(真){
-        
-        調查:(ａ)==(0)
-        分歧:(真){
-            調用:ShopSexStory1AfterSex(人物Ａ)
-        }
-        調查:(ａ)==(1)
-        分歧:(真){
-            調用:ShopSexStory2AfterSex(人物Ａ)
-        }
-        調查:(ａ)==(2)
-        分歧:(真){
-            調用:ShopSexStory3AfterSex(人物Ａ)
-        }
-        調查:(ａ)==(3)
-        分歧:(真){
-            調用:ShopSexStory4AfterSex(人物Ａ)
-        }
-        調查:(ａ)==(4)
-        分歧:(真){
-            調用:ShopSexStory5AfterSex(人物Ａ)
-        }
-        調查:(ａ)==(5)
-        分歧:(真){
-            調用:ShopSexStory1AfterSex(人物Ａ)
-        }
-    }
-
     恢復所有變量:
 }}
 
-定義:ShopSex1PContinue(目標人物){{
+定義:OnsenStory1BC(){{
     暫存所有變量:
-    代入人物Ａ:({目標人物})
     ＡＮＤ調查:{
         調查:(人物Ａ)!=(無效)
         調查:(人物Ａ)!=(主人公)
     }
     分歧:(真){
-        //代入ａ:(Ｒｎｄ)%(2)
-        選擇:[[繼續]][[算了]]
-        分歧:([[繼續]]){
-            選擇:[[開始1]][[開始2]][[開始3]][[開始4]][[開始5]][[算了]]
-            代入ａ:(Ｒｎｄ)%(5)
-            分歧:([[開始1]]){
-                代入ａ:(0)
-                調用:ShopSexStory1Part2(人物Ａ)
-                調用:ShopSex1PExit(人物Ａ, ａ)
-            }
-            分歧:([[開始2]]){
-                代入ａ:(1)
-                調用:ShopSexStory2Part2(人物Ａ)
-                調用:ShopSex1PExit(人物Ａ, ａ)
-            }            
-            分歧:([[開始3]]){
-                代入ａ:(2)
-                調用:ShopSexStory3Part2(人物Ａ)
-                調用:ShopSex1PExit(人物Ａ, ａ)
-            }
-            分歧:([[開始4]]){
-                代入ａ:(3)
-                調用:ShopSexStory4Part2(人物Ａ)
-                調用:ShopSex1PExit(人物Ａ, ａ)
-            }
-            分歧:([[開始5]]){
-                代入ａ:(4)
-                調用:ShopSexStory5Part2(人物Ａ)
-                調用:ShopSex1PExit(人物Ａ, ａ)
-            }
-        }
-        分歧:([[算了]]){
-            代入ａ:(Ｒｎｄ)%(5)
-            調用:ShopSex1PExit(人物Ａ, ａ)
-        }   
+        調用:OnsenStory1PreludeB()
+        調用:ShowSexPic()
+        調用:OnsenStory1EventB()
+        調用:OnsenStory1PreludeC()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory1EventC()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory1EventD()
+        圖片移除:(圖片Ａ,褪去)
     }
     恢復所有變量:
 }}
-定義:ShopSex1P(目標人物){{
+
+
+定義:OnsenStory2All(){{
     暫存所有變量:
-    代入人物Ａ:({目標人物})
     ＡＮＤ調查:{
         調查:(人物Ａ)!=(無效)
         調查:(人物Ａ)!=(主人公)
     }
     分歧:(真){
-    	調用:ShopSex1PStart(人物Ａ)
-        調用:ShopSex1PContinue(人物Ａ)
+        調用:OnsenStory2PreludeA()
+        調用:ShowSexPic()
+        調用:OnsenStory2EventA()
+        調用:OnsenStory2PreludeB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory2EventB()
+        調用:OnsenStory2PreludeC()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory2EventC()
+        圖片移除:(圖片Ａ,褪去)
+    }
+    恢復所有變量:
+}}
+
+
+定義:OnsenStory2BC(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        調用:OnsenStory2PreludeB()
+        調用:ShowSexPic()
+        調用:OnsenStory2EventB()
+        調用:OnsenStory2PreludeC()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory2EventC()
+        圖片移除:(圖片Ａ,褪去)
+    }
+    恢復所有變量:
+}}
+
+定義:OnsenStory3All(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        調用:OnsenStory3PreludeA()
+        調用:ShowSexPic()
+        調用:OnsenStory3EventA()
+        調用:OnsenStory3PreludeB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory3EventB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory3EventC()
+        圖片移除:(圖片Ａ,褪去)
+    }
+    恢復所有變量:
+}}
+
+定義:OnsenStory3BC(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        調用:OnsenStory3PreludeB()
+        調用:ShowSexPic()
+        調用:OnsenStory3EventB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory3EventC()
+        圖片移除:(圖片Ａ,褪去)
+    }
+    恢復所有變量:
+}}
+
+
+定義:OnsenStory4All(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        調用:OnsenStory4PreludeA()
+        調用:ShowSexPic()
+        調用:OnsenStory4EventA()
+        調用:OnsenStory4PreludeB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory4EventB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory4EventC()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory4EventD()
+        圖片移除:(圖片Ａ,褪去)
+    }
+    恢復所有變量:
+}}
+
+
+定義:OnsenStory4BC(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        調用:OnsenStory4PreludeB()
+        調用:ShowSexPic()
+        調用:OnsenStory4EventB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory4EventC()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory4EventD()
+        圖片移除:(圖片Ａ,褪去)
+    }
+    恢復所有變量:
+}}
+
+定義:OnsenStory5All(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        調用:OnsenStory5PreludeA()
+        調用:ShowSexPic()
+        調用:OnsenStory5EventA()
+        調用:OnsenStory5PreludeB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory5EventB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory5EventC()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory5EventD()
+        圖片移除:(圖片Ａ,褪去)
+    }
+    恢復所有變量:
+}}
+
+定義:OnsenStory5BC(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        調用:OnsenStory5PreludeB()
+        調用:ShowSexPic()
+        調用:OnsenStory5EventB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory5EventC()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory5EventD()
+        圖片移除:(圖片Ａ,褪去)
+    }
+    恢復所有變量:
+}}
+
+定義:OnsenStory6All(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        調用:OnsenStory6PreludeA()
+        調用:ShowSexPic()
+        調用:OnsenStory6EventA()
+        調用:OnsenStory6PreludeB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory6EventB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory6EventC()
+        圖片移除:(圖片Ａ,褪去)
+    }
+    恢復所有變量:
+}}
+
+定義:OnsenStory6BC(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        調用:OnsenStory6PreludeB()
+        調用:ShowSexPic()
+        調用:OnsenStory6EventB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory6EventC()
+        圖片移除:(圖片Ａ,褪去)
+    }
+    恢復所有變量:
+}}
+
+定義:OnsenStory7All(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        調用:OnsenStory7PreludeA()
+        調用:ShowSexPic()
+        調用:OnsenStory7EventA()
+        調用:OnsenStory7PreludeB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory7EventB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory7EventC()
+        圖片移除:(圖片Ａ,褪去)
+    }
+    恢復所有變量:
+}}
+
+定義:OnsenStory7BC(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        調用:OnsenStory7PreludeB()
+        調用:ShowSexPic()
+        調用:OnsenStory7EventB()
+        圖片移除:(圖片Ａ,褪去)
+        調用:ShowSexPic()
+        調用:OnsenStory7EventC()
+        圖片移除:(圖片Ａ,褪去)
     }
     恢復所有變量:
 }}
