@@ -90,7 +90,7 @@
         調用:OnsenStory2EventB()
         調用:OnsenStory2PreludeC()
         圖片移除:(圖片Ａ,褪去)
-        調用:ShowSexPic()
+        調用:ShowSandwichSexPic()
         調用:OnsenStory2EventC()
         圖片移除:(圖片Ａ,褪去)
         調用:OnsenA()

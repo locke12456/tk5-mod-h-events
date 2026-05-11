@@ -92,7 +92,7 @@
         調用:ShowSexPic()
         調用:OnsenStory5EventC()
         圖片移除:(圖片Ａ,褪去)
-        調用:ShowSexPic()
+        調用:ShowSandwichSexPic()
         調用:OnsenStory5EventD()
         圖片移除:(圖片Ａ,褪去)
         調用:OnsenA()
