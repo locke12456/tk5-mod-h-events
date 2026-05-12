@@ -2,7 +2,9 @@
 
 腳本:{
 包含:function/raid_helpers.txt
-包含:function/raid_story.txt
+包含:function/raid_story_win.txt
+包含:function/raid_story_defeat.txt
+包含:function/raid_story_owner.txt
 
 //說明
 //  到訪座洽談生意時遭遇女山賊劫庫的事件

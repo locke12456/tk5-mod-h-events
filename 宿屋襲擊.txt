@@ -2,7 +2,9 @@
 
 腳本:{
 包含:function/raid_helpers.txt
-包含:function/raid_story.txt
+包含:function/raid_story_win.txt
+包含:function/raid_story_defeat.txt
+包含:function/raid_story_owner.txt
 
 //說明
 //  夜宿宿屋遭遇女山賊襲擊女老闆娘的事件
@@ -22,7 +24,7 @@
 屬性:多次｜弱
 發生契機:室內畫面表示後(無效,宿屋)
 發生條件:{
-    調查:(Ｒｎｄ１００)<(10)
+    調查:(Ｒｎｄ１００)<(100)
     調查:(人物::主人公.性別)==(男)
     調查:(人物::主人公.體力)>=(20)
 }

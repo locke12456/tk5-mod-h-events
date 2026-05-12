@@ -2,7 +2,8 @@
 
 腳本:{
 包含:function/raid_helpers.txt
-包含:function/raid_story.txt
+包含:function/raid_story_win.txt
+包含:function/raid_story_defeat.txt
 
 //說明
 //  外出見聞 強盜（女山賊隨機遭遇）

@@ -2,7 +2,9 @@
 
 腳本:{
 包含:function/raid_helpers.txt
-包含:function/raid_story.txt
+包含:function/raid_story_win.txt
+包含:function/raid_story_defeat.txt
+包含:function/raid_story_owner.txt
 
 //說明
 //  到醫師宅看診時遭遇女山賊劫藥的事件
