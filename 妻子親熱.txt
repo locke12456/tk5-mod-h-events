@@ -142,9 +142,9 @@
     選擇:[[妻子靠近]][[結束]]
     分歧:([[妻子靠近]]){
         調用:WifeDialogueSexSetup()
-        調用:ShowSexPic()
+        調用:BeginH()
         調用:WifeDialogueStory1()
-        圖片移除:(圖片Ａ,褪去)
+        調用:EndH()
         調用:WifeDialogueSexReward()
         調用:妻子親熱記錄event1()
     }
@@ -165,9 +165,9 @@
     選擇:[[妻子靠近]][[結束]]
     分歧:([[妻子靠近]]){
         調用:WifeDialogueSexSetup()
-        調用:ShowSexPic()
+        調用:BeginH()
         調用:WifeDialogueStory2()
-        圖片移除:(圖片Ａ,褪去)
+        調用:EndH()
         調用:WifeDialogueSexReward()
         調用:妻子親熱記錄event2()
     }
@@ -188,9 +188,9 @@
     選擇:[[妻子靠近]][[結束]]
     分歧:([[妻子靠近]]){
         調用:WifeDialogueSexSetup()
-        調用:ShowSexPic()
+        調用:BeginH()
         調用:WifeDialogueStory3()
-        圖片移除:(圖片Ａ,褪去)
+        調用:EndH()
         調用:WifeDialogueSexReward()
         調用:妻子親熱記錄event3()
     }
@@ -211,9 +211,9 @@
     選擇:[[妻子靠近]][[結束]]
     分歧:([[妻子靠近]]){
         調用:WifeDialogueSexSetup()
-        調用:ShowSexPic()
+        調用:BeginH()
         調用:WifeDialogueStory4()
-        圖片移除:(圖片Ａ,褪去)
+        調用:EndH()
         調用:WifeDialogueSexReward()
         調用:妻子親熱記錄event4()
     }
@@ -234,9 +234,9 @@
     選擇:[[妻子靠近]][[結束]]
     分歧:([[妻子靠近]]){
         調用:WifeDialogueSexSetup()
-        調用:ShowSexPic()
+        調用:BeginH()
         調用:WifeDialogueStory5()
-        圖片移除:(圖片Ａ,褪去)
+        調用:EndH()
         調用:WifeDialogueSexReward()
         調用:妻子親熱記錄event5()
     }
