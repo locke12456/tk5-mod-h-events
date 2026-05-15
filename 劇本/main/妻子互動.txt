@@ -1,0 +1,653 @@
+太閣立志傳５事件源文件
+//4 按鈕純觸發版整合 — 廢除：妻子對話.txt / 妻子親熱.txt / wife_onsen_3p_1~7.txt 共 9 檔
+包含:function/message_helpers.txt
+包含:function/wife_helpers.txt
+包含:function/wife_story.txt
+包含:function/wife_dialogue_story1.txt
+包含:function/wife_dialogue_story2.txt
+包含:function/wife_dialogue_story3.txt
+包含:function/wife_dialogue_story4.txt
+包含:function/wife_dialogue_story5.txt
+包含:function/onsen_story1.txt
+包含:function/onsen_story2.txt
+包含:function/onsen_story3.txt
+包含:function/onsen_story4.txt
+包含:function/onsen_story5.txt
+包含:function/onsen_story6.txt
+包含:function/onsen_story7.txt
+包含:function/onsen_story_pic_v2.txt
+
+腳本:{
+
+//============ 共用獎勵 / 親熱 setup（局部定義 body 用雙括號，對齊 醫師診療豔遇.txt 定義: pattern） ============
+
+局部定義:OnsenA(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        代入ｃ:(人物::人物Ａ.親密度)
+        代入ｄ:(ｃ)+(30)
+        更新:(人物::人物Ａ.親密度)(ｄ)
+        旁白:[[與(人物Ａ)的親密度上升了！]]
+    }
+    恢復所有變量:
+}}
+
+局部定義:OnsenB(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ｂ)!=(無效)
+        調查:(人物Ｂ)!=(主人公)
+    }
+    分歧:(真){
+        代入ｃ:(人物::人物Ｂ.親密度)
+        代入ｄ:(ｃ)+(30)
+        更新:(人物::人物Ｂ.親密度)(ｄ)
+        旁白:[[與(人物Ｂ)的親密度上升了！]]
+    }
+    恢復所有變量:
+}}
+
+局部定義:OnsenWife(){{
+    暫存所有變量:
+    調查:(人物::主人公妻)!=(無效)
+    分歧:(真){
+        代入ｃ:(儲存號::妻愛情值)
+        代入ｄ:(ｃ)+(5)
+        更新:(儲存號::妻愛情值)(ｄ)
+        旁白:[[與(主人公妻)的親密度上升了！]]
+    }
+    恢復所有變量:
+}}
+
+局部定義:OnsenAddMoney(){{
+    暫存所有變量:
+    ＡＮＤ調查:{
+        調查:(人物Ａ)!=(無效)
+        調查:(人物Ａ)!=(主人公)
+    }
+    分歧:(真){
+        ＳＥ開始:(成功音)
+        旁白:[[(人物Ａ)的體力已經恢復]]
+        更新:(人物Ａ.生病標誌)(健康)
+        代入ａ:(人物::主人公.所持金)
+        代入ｂ:(Ｒｎｄ)%(10)
+        代入ｃ:(ｂ)+(1)
+        代入ｘ:(ｃ)*(10)
+        代入ｄ:(ａ)+(ｘ)
+        更新:(主人公.所持金)(ｄ)
+        ＳＥ開始:(撒錢聲)
+        旁白:[[(主人公)作為感謝收到了<ｘ>貫！]]
+        對話:(主人公,人物Ａ)[[這是，這是，太感謝了…]]
+        ＳＥ開始:(鈴音２)
+    }
+    恢復所有變量:
+}}
+
+局部定義:WifeDialogueSexSetup(){{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+}}
+
+局部定義:WifeDialogueSexReward(){{
+    暫存所有變量:
+    調查:(人物::主人公妻)!=(無效)
+    分歧:(真){
+        代入ｃ:(儲存號::妻愛情值)
+        代入ｄ:(ｃ)+(5)
+        更新:(儲存號::妻愛情值)(ｄ)
+        旁白:[[與(主人公妻)的親密度上升了！]]
+    }
+    恢復所有變量:
+}}
+
+信息:劇本(妻子互動集)
+信息:作者(Locke)
+信息:版本(0.2.0)
+信息:說明(4 按鈕純觸發版整合，取代妻子對話/妻子親熱/wife_onsen_3p_1~7 共 9 檔)
+
+//============ §4 進門初始化事件（reg 殼，無 H 自動觸發） ============
+事件:妻子互動reg{
+屬性:多次｜弱
+發生契機:室內畫面表示後(無效,自宅)
+發生條件:{
+    調查:(人物::主人公.妻)!=(無效)
+}
+執行:{
+    更新:(事件標誌::主人公出門)(不成立)
+    更新:(事件標誌::來訪客)(不成立)
+    更新:(事件標誌::妻子互動本輪H已觸發)(不成立)
+    場面選擇添加:(自宅,無效,妻子互動_聽妻子說話)[[聽妻子說話]]
+    場面選擇添加:(自宅,無效,妻子互動_吃飯)[[吃飯]]
+    場面選擇添加:(自宅,無效,妻子互動_親熱)[[親熱]]
+    場面選擇添加:(自宅,無效,妻子互動_溫泉豔遇)[[溫泉豔遇]]
+    事件攔截添加:(設施右鍵,無效,溫泉·主人公出門,無效)
+    事件攔截添加:(設施退出按鈕,無效,溫泉·主人公出門,無效)
+    事件攔截添加:(據點右鍵,無效,溫泉·主人公出門,無效)
+    事件攔截添加:(據點退出按鈕,無效,溫泉·主人公出門,無效)
+}
+}
+
+//============ §3.3 出場景清理 ============
+功能:溫泉·主人公出門{
+執行:{
+    更新:(事件標誌::主人公出門)(成立)
+    更新:(事件標誌::妻子互動本輪H已觸發)(不成立)
+}//
+}//
+
+//============ §5.1 聽妻子說話按鈕 ============
+功能:妻子互動_聽妻子說話{
+執行:{
+    調用:WifeSmallTalk()
+    場面選擇處理:(結束)
+}//
+}//
+
+//============ §5.2 吃飯按鈕 ============
+功能:妻子互動_吃飯{
+執行:{
+    調用:WifeMeal()
+    場面選擇處理:(結束)
+}//
+}//
+
+//============ §5.3 親熱按鈕（Ｒｎｄ%5 → WifeDialogueStory1~5） ============
+功能:妻子互動_親熱{
+執行:{
+    更新:(事件標誌::妻子互動本輪H已觸發)(成立)
+    調用:WifeDialogueSexSetup()
+    調用:BeginH()
+    代入ｎ:(Ｒｎｄ)%(5)
+    場合別:(ｎ){
+        場合分歧:(0){
+            調用:WifeDialogueStory1()
+        }
+        場合分歧:(1){
+            調用:WifeDialogueStory2()
+        }
+        場合分歧:(2){
+            調用:WifeDialogueStory3()
+        }
+        場合分歧:(3){
+            調用:WifeDialogueStory4()
+        }
+        場合分歧:(4){
+            調用:WifeDialogueStory5()
+        }
+    }
+    調用:EndH()
+    調用:WifeDialogueSexReward()
+    場面選擇處理:(結束)
+}//
+}//
+
+//============ §5.4 溫泉豔遇按鈕（Ｒｎｄ%14 = 7 3P + 7 solo） ============
+功能:妻子互動_溫泉豔遇{
+執行:{
+    更新:(事件標誌::妻子互動本輪H已觸發)(成立)
+    更新:(事件標誌::來訪客)(成立)
+    代入ｎ:(Ｒｎｄ)%(14)
+    場合別:(ｎ){
+        場合分歧:(0){
+            功能調用:溫泉3P_1()
+        }
+        場合分歧:(1){
+            功能調用:溫泉3P_2()
+        }
+        場合分歧:(2){
+            功能調用:溫泉3P_3()
+        }
+        場合分歧:(3){
+            功能調用:溫泉3P_4()
+        }
+        場合分歧:(4){
+            功能調用:溫泉3P_5()
+        }
+        場合分歧:(5){
+            功能調用:溫泉3P_6()
+        }
+        場合分歧:(6){
+            功能調用:溫泉3P_7()
+        }
+        場合分歧:(7){
+            功能調用:溫泉solo_1()
+        }
+        場合分歧:(8){
+            功能調用:溫泉solo_2()
+        }
+        場合分歧:(9){
+            功能調用:溫泉solo_3()
+        }
+        場合分歧:(10){
+            功能調用:溫泉solo_4()
+        }
+        場合分歧:(11){
+            功能調用:溫泉solo_5()
+        }
+        場合分歧:(12){
+            功能調用:溫泉solo_6()
+        }
+        場合分歧:(13){
+            功能調用:溫泉solo_7()
+        }
+    }
+    場面選擇處理:(結束)
+}//
+}//
+
+//============ §6.1 七套 3P 功能殼 ============
+功能:溫泉3P_1{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    調用:GetRandomGirls()
+    調用:GetGirlsName()
+    調用:ShowOnsenStory1PreludeA()
+    調用:OnsenStory1PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory1EventA()
+    調用:OnsenStory1EventA()
+    調用:EndH()
+    調用:ShowOnsenStory1PreludeB()
+    調用:OnsenStory1PreludeB()
+    調用:EndH()
+    調用:ShowOnsenStory1EventB()
+    調用:OnsenStory1EventB()
+    調用:EndH()
+    調用:ShowOnsenStory1PreludeC()
+    調用:OnsenStory1PreludeC()
+    調用:EndH()
+    調用:ShowOnsenStory1EventC()
+    調用:OnsenStory1EventC()
+    調用:EndH()
+    調用:ShowOnsenStory1EventD()
+    調用:OnsenStory1EventD()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenB()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉3P_2{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    調用:GetRandomGirls()
+    調用:GetGirlsName()
+    調用:ShowOnsenStory2PreludeA()
+    調用:OnsenStory2PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory2EventA()
+    調用:OnsenStory2EventA()
+    調用:EndH()
+    調用:ShowOnsenStory2PreludeB()
+    調用:OnsenStory2PreludeB()
+    調用:EndH()
+    調用:ShowOnsenStory2EventB()
+    調用:OnsenStory2EventB()
+    調用:EndH()
+    調用:ShowOnsenStory2PreludeC()
+    調用:OnsenStory2PreludeC()
+    調用:EndH()
+    調用:ShowOnsenStory2EventC()
+    調用:OnsenStory2EventC()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenB()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉3P_3{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    調用:GetRandomGirls()
+    調用:GetGirlsName()
+    調用:ShowOnsenStory3PreludeA()
+    調用:OnsenStory3PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory3EventA()
+    調用:OnsenStory3EventA()
+    調用:EndH()
+    調用:ShowOnsenStory3PreludeB()
+    調用:OnsenStory3PreludeB()
+    調用:EndH()
+    調用:ShowOnsenStory3EventB()
+    調用:OnsenStory3EventB()
+    調用:EndH()
+    調用:ShowOnsenStory3EventC()
+    調用:OnsenStory3EventC()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenB()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉3P_4{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    調用:GetRandomGirls()
+    調用:GetGirlsName()
+    調用:ShowOnsenStory4PreludeA()
+    調用:OnsenStory4PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory4EventA()
+    調用:OnsenStory4EventA()
+    調用:EndH()
+    調用:ShowOnsenStory4PreludeB()
+    調用:OnsenStory4PreludeB()
+    調用:EndH()
+    調用:ShowOnsenStory4EventB()
+    調用:OnsenStory4EventB()
+    調用:EndH()
+    調用:ShowOnsenStory4EventC()
+    調用:OnsenStory4EventC()
+    調用:EndH()
+    調用:ShowOnsenStory4EventD()
+    調用:OnsenStory4EventD()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenB()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉3P_5{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    調用:GetRandomGirls()
+    調用:GetGirlsName()
+    調用:ShowOnsenStory5PreludeA()
+    調用:OnsenStory5PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory5EventA()
+    調用:OnsenStory5EventA()
+    調用:EndH()
+    調用:ShowOnsenStory5PreludeB()
+    調用:OnsenStory5PreludeB()
+    調用:EndH()
+    調用:ShowOnsenStory5EventB()
+    調用:OnsenStory5EventB()
+    調用:EndH()
+    調用:ShowOnsenStory5EventC()
+    調用:OnsenStory5EventC()
+    調用:EndH()
+    調用:ShowOnsenStory5EventD()
+    調用:OnsenStory5EventD()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenB()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉3P_6{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    調用:GetRandomGirls()
+    調用:GetGirlsName()
+    調用:ShowOnsenStory6PreludeA()
+    調用:OnsenStory6PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory6EventA()
+    調用:OnsenStory6EventA()
+    調用:EndH()
+    調用:ShowOnsenStory6PreludeB()
+    調用:OnsenStory6PreludeB()
+    調用:EndH()
+    調用:ShowOnsenStory6EventB()
+    調用:OnsenStory6EventB()
+    調用:EndH()
+    調用:ShowOnsenStory6EventC()
+    調用:OnsenStory6EventC()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenB()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉3P_7{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    調用:GetRandomGirls()
+    調用:GetGirlsName()
+    調用:ShowOnsenStory7PreludeA()
+    調用:OnsenStory7PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory7EventA()
+    調用:OnsenStory7EventA()
+    調用:EndH()
+    調用:ShowOnsenStory7PreludeB()
+    調用:OnsenStory7PreludeB()
+    調用:EndH()
+    調用:ShowOnsenStory7EventB()
+    調用:OnsenStory7EventB()
+    調用:EndH()
+    調用:ShowOnsenStory7EventC()
+    調用:OnsenStory7EventC()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenB()
+    調用:OnsenAddMoney()
+}//
+}//
+
+//============ §6.2 七套 solo 功能殼（50/50 GetRandomGirls / GetRandomGirlsAndWife） ============
+功能:溫泉solo_1{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    代入ａ:(Ｒｎｄ)%(2)
+    場合別:(ａ){
+        場合分歧:(0){
+            調用:GetRandomGirls()
+        }
+        場合分歧:(1){
+            調用:GetRandomGirlsAndWife()
+        }
+    }
+    調用:GetGirlsName()
+    調用:ShowOnsenStory1PreludeA()
+    調用:OnsenStory1PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory1EventA()
+    調用:OnsenStory1EventA()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉solo_2{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    代入ａ:(Ｒｎｄ)%(2)
+    場合別:(ａ){
+        場合分歧:(0){
+            調用:GetRandomGirls()
+        }
+        場合分歧:(1){
+            調用:GetRandomGirlsAndWife()
+        }
+    }
+    調用:GetGirlsName()
+    調用:ShowOnsenStory2PreludeA()
+    調用:OnsenStory2PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory2EventA()
+    調用:OnsenStory2EventA()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉solo_3{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    代入ａ:(Ｒｎｄ)%(2)
+    場合別:(ａ){
+        場合分歧:(0){
+            調用:GetRandomGirls()
+        }
+        場合分歧:(1){
+            調用:GetRandomGirlsAndWife()
+        }
+    }
+    調用:GetGirlsName()
+    調用:ShowOnsenStory3PreludeA()
+    調用:OnsenStory3PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory3EventA()
+    調用:OnsenStory3EventA()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉solo_4{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    代入ａ:(Ｒｎｄ)%(2)
+    場合別:(ａ){
+        場合分歧:(0){
+            調用:GetRandomGirls()
+        }
+        場合分歧:(1){
+            調用:GetRandomGirlsAndWife()
+        }
+    }
+    調用:GetGirlsName()
+    調用:ShowOnsenStory4PreludeA()
+    調用:OnsenStory4PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory4EventA()
+    調用:OnsenStory4EventA()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉solo_5{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    代入ａ:(Ｒｎｄ)%(2)
+    場合別:(ａ){
+        場合分歧:(0){
+            調用:GetRandomGirls()
+        }
+        場合分歧:(1){
+            調用:GetRandomGirlsAndWife()
+        }
+    }
+    調用:GetGirlsName()
+    調用:ShowOnsenStory5PreludeA()
+    調用:OnsenStory5PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory5EventA()
+    調用:OnsenStory5EventA()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉solo_6{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    代入ａ:(Ｒｎｄ)%(2)
+    場合別:(ａ){
+        場合分歧:(0){
+            調用:GetRandomGirls()
+        }
+        場合分歧:(1){
+            調用:GetRandomGirlsAndWife()
+        }
+    }
+    調用:GetGirlsName()
+    調用:ShowOnsenStory6PreludeA()
+    調用:OnsenStory6PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory6EventA()
+    調用:OnsenStory6EventA()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenAddMoney()
+}//
+}//
+
+功能:溫泉solo_7{
+執行:{
+    代入圖片Ａ:(無效)
+    代入ｗ:(當前畫面.畫面寬度)
+    代入ｈ:(當前畫面.畫面高度)
+    顯示設定:(單次顯示層級,等於背景)
+    代入ａ:(Ｒｎｄ)%(2)
+    場合別:(ａ){
+        場合分歧:(0){
+            調用:GetRandomGirls()
+        }
+        場合分歧:(1){
+            調用:GetRandomGirlsAndWife()
+        }
+    }
+    調用:GetGirlsName()
+    調用:ShowOnsenStory7PreludeA()
+    調用:OnsenStory7PreludeA()
+    調用:EndH()
+    調用:ShowOnsenStory7EventA()
+    調用:OnsenStory7EventA()
+    調用:EndH()
+    調用:OnsenA()
+    調用:OnsenAddMoney()
+}//
+}//
+
+}//腳本結束
