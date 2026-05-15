@@ -1,0 +1,658 @@
+太閣立志傳５事件源文件
+包含:function/message.txt
+包含:function/onsen_message.txt
+//包含:function/onsen_routes_b.txt
+
+定義:OnsenPreludeA(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(8)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory1PreludeA()
+        }
+        場合分歧:(2){
+            調用:OnsenStory2PreludeA()
+        }
+        場合分歧:(3){
+            調用:OnsenStory3PreludeA()
+        }
+        場合分歧:(4){
+            調用:OnsenStory4PreludeA()
+        }
+        場合分歧:(5){
+            調用:OnsenStory5PreludeA()
+        }
+        場合分歧:(6){
+            調用:OnsenStory6PreludeA()
+        }
+        場合分歧:(7){
+            調用:OnsenStory7PreludeA()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:SoloSexOnsen(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(8)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory1EventA()
+        }
+        場合分歧:(2){
+            調用:OnsenStory2EventA()
+        }
+        場合分歧:(3){
+            調用:OnsenStory3EventA()
+        }
+        場合分歧:(4){
+            調用:OnsenStory4EventA()
+        }
+        場合分歧:(5){
+            調用:OnsenStory5EventA()
+        }
+        場合分歧:(6){
+            調用:OnsenStory6EventA()
+        }
+        場合分歧:(7){
+            調用:OnsenStory7EventA()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenPreludeC(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(2)
+    場合別:(ａ){
+        場合分歧:(0){
+            調用:OnsenStory1PreludeC()
+        }
+        場合分歧:(1){
+            調用:OnsenStory2PreludeC()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenEventC(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(5)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory1PreludeC()
+            調用:OnsenStory1EventC()
+            調用:OnsenStory1EventD()
+        }
+        場合分歧:(2){
+            調用:OnsenStory1PreludeC()
+            調用:OnsenStory2EventC()
+        }
+        場合分歧:(3){
+            調用:OnsenStory4EventC()
+            調用:OnsenStory4EventD()
+        }
+        場合分歧:(4){
+            調用:OnsenStory5EventC()
+            調用:OnsenStory5EventD()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenPreludeBWife(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(4)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        // wife
+        場合分歧:(4){
+            調用:OnsenStory3PreludeB()
+        }
+        // wife
+        場合分歧:(2){
+            調用:OnsenStory6PreludeB()
+        }
+        // wife
+        場合分歧:(3){
+            調用:OnsenStory7PreludeB()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenPreludeCWife(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(3)
+    場合別:(ａ){
+        場合分歧:(0){
+            調用:OnsenStory1PreludeC()
+        }
+        場合分歧:(1){
+            調用:OnsenStory2PreludeC()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenEventBWife(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(4)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory3EventB()
+        }
+        場合分歧:(2){
+            調用:OnsenStory6EventB()
+        }
+        場合分歧:(3){
+            調用:OnsenStory7EventB()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenEventCWife(结果變量){{
+    暫存所有變量:
+    代入ａ:(Ｒｎｄ)%(4)
+    調查:(ａ)==(0)
+    分歧:(真){
+        代入ａ:(1)
+    }
+    場合別:(ａ){
+        場合分歧:(1){
+            調用:OnsenStory3EventC()
+        }
+        場合分歧:(2){
+            調用:OnsenStory6EventC()
+        }
+        場合分歧:(3){
+            調用:OnsenStory7EventC()
+        }
+    }
+    代入{结果變量}:(ａ)
+    恢復所有變量並保留:({结果變量})
+}}
+
+定義:OnsenRoutePrelude1Event1B(){{
+    暫存所有變量:
+    調用:OnsenStory1PreludeB()
+    調用:OnsenStory1EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude1Event2B(){{
+    暫存所有變量:
+    調用:OnsenStory1PreludeB()
+    調用:OnsenStory2EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude1Event4B(){{
+    暫存所有變量:
+    調用:OnsenStory1PreludeB()
+    調用:OnsenStory4EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude1Event5B(){{
+    暫存所有變量:
+    調用:OnsenStory1PreludeB()
+    調用:OnsenStory5EventB()
+    恢復所有變量:
+}}
+
+// Prelude2 × Event(1,2,4,5)
+定義:OnsenRoutePrelude2Event1B(){{
+    暫存所有變量:
+    調用:OnsenStory2PreludeB()
+    調用:OnsenStory1EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude2Event2B(){{
+    暫存所有變量:
+    調用:OnsenStory2PreludeB()
+    調用:OnsenStory2EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude2Event4B(){{
+    暫存所有變量:
+    調用:OnsenStory2PreludeB()
+    調用:OnsenStory4EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude2Event5B(){{
+    暫存所有變量:
+    調用:OnsenStory2PreludeB()
+    調用:OnsenStory5EventB()
+    恢復所有變量:
+}}
+
+// Prelude4 × Event(1,2,4,5)
+定義:OnsenRoutePrelude4Event1B(){{
+    暫存所有變量:
+    調用:OnsenStory4PreludeB()
+    調用:OnsenStory1EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude4Event2B(){{
+    暫存所有變量:
+    調用:OnsenStory4PreludeB()
+    調用:OnsenStory2EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude4Event4B(){{
+    暫存所有變量:
+    調用:OnsenStory4PreludeB()
+    調用:OnsenStory4EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude4Event5B(){{
+    暫存所有變量:
+    調用:OnsenStory4PreludeB()
+    調用:OnsenStory5EventB()
+    恢復所有變量:
+}}
+
+// Prelude5 × Event(1,2,4,5)
+定義:OnsenRoutePrelude5Event1B(){{
+    暫存所有變量:
+    調用:OnsenStory5PreludeB()
+    調用:OnsenStory1EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude5Event2B(){{
+    暫存所有變量:
+    調用:OnsenStory5PreludeB()
+    調用:OnsenStory2EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude5Event4B(){{
+    暫存所有變量:
+    調用:OnsenStory5PreludeB()
+    調用:OnsenStory4EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude5Event5B(){{
+    暫存所有變量:
+    調用:OnsenStory5PreludeB()
+    調用:OnsenStory5EventB()
+    恢復所有變量:
+}}
+
+// Wife專用B階段組合 (9個)
+// Prelude3 × Event(3,6,7)
+定義:OnsenRoutePrelude3Event3BWife(){{
+    暫存所有變量:
+    調用:OnsenStory3PreludeB()
+    調用:OnsenStory3EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude3Event6BWife(){{
+    暫存所有變量:
+    調用:OnsenStory3PreludeB()
+    調用:OnsenStory6EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude3Event7BWife(){{
+    暫存所有變量:
+    調用:OnsenStory3PreludeB()
+    調用:OnsenStory7EventB()
+    恢復所有變量:
+}}
+
+// Prelude6 × Event(3,6,7)
+定義:OnsenRoutePrelude6Event3BWife(){{
+    暫存所有變量:
+    調用:OnsenStory6PreludeB()
+    調用:OnsenStory3EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude6Event6BWife(){{
+    暫存所有變量:
+    調用:OnsenStory6PreludeB()
+    調用:OnsenStory6EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude6Event7BWife(){{
+    暫存所有變量:
+    調用:OnsenStory6PreludeB()
+    調用:OnsenStory7EventB()
+    恢復所有變量:
+}}
+
+// Prelude7 × Event(3,6,7)
+定義:OnsenRoutePrelude7Event3BWife(){{
+    暫存所有變量:
+    調用:OnsenStory7PreludeB()
+    調用:OnsenStory3EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude7Event6BWife(){{
+    暫存所有變量:
+    調用:OnsenStory7PreludeB()
+    調用:OnsenStory6EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRoutePrelude7Event7BWife(){{
+    暫存所有變量:
+    調用:OnsenStory7PreludeB()
+    調用:OnsenStory7EventB()
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral1(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude1Event1B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral2(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude1Event2B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral3(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude1Event4B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral4(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude1Event5B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral5(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude2Event1B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral6(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude2Event2B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral7(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude2Event4B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral8(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude2Event5B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral9(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude4Event1B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral10(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude4Event2B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral11(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude4Event4B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral12(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude4Event5B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral13(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude5Event1B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral14(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude5Event2B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral15(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude5Event4B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteGeneral16(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude5Event5B()
+    調用:OnsenPreludeC(ａ)
+    調用:OnsenEventC(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteWife1(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude3Event3BWife()
+    //調用:OnsenPreludeCWife(ａ)
+    調用:OnsenEventCWife(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteWife2(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude3Event6BWife()
+    //調用:OnsenPreludeCWife(ａ)
+    調用:OnsenEventCWife(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteWife3(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude3Event7BWife()
+    //調用:OnsenPreludeCWife(ａ)
+    調用:OnsenEventCWife(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteWife4(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude6Event3BWife()
+    //調用:OnsenPreludeCWife(ａ)
+    調用:OnsenEventCWife(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteWife5(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude6Event6BWife()
+    //調用:OnsenPreludeCWife(ａ)
+    調用:OnsenEventCWife(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteWife6(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude6Event7BWife()
+    //調用:OnsenPreludeCWife(ａ)
+    調用:OnsenEventCWife(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteWife7(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude7Event3BWife()
+    //調用:OnsenPreludeCWife(ａ)
+    調用:OnsenEventCWife(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteWife8(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude7Event6BWife()
+    //調用:OnsenPreludeCWife(ａ)
+    調用:OnsenEventCWife(ａ)
+    恢復所有變量:
+}}
+
+定義:OnsenRouteWife9(){{
+    暫存所有變量:
+    代入ａ:(0)
+    調用:OnsenPreludeA(ａ)
+    調用:SoloSexOnsen(ａ)
+    調用:OnsenRoutePrelude7Event7BWife()
+    //調用:OnsenPreludeCWife(ａ)
+    調用:OnsenEventCWife(ａ)
+    恢復所有變量:
+}}
